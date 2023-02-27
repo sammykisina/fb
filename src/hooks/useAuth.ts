@@ -7,7 +7,6 @@ import jwt_decode from "jwt-decode";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser } from "../redux/reducer";
 import { LoginData } from "../types/typings.t";
-// import { useNavigate } from "react-router-dom";
 
 export type User = {
   name: string;
@@ -25,7 +24,6 @@ const useAuth = () => {
     (state: any) => state.app.client.auth.isAuthenticated
   );
   const token = Cookies.get("token");
-  // const navigate = useNavigate();
 
   /**
    * hook functions
@@ -40,6 +38,7 @@ const useAuth = () => {
 
       Cookies.set("token", data.token);
       refresh();
+
       Notifications.successNotification(data.message);
     },
   });
