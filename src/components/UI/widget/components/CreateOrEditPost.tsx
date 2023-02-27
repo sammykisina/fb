@@ -121,7 +121,7 @@ const CreateOrEditPost = () => {
             title={
               isEditingPost ? (
                 isUpdatingPost ? (
-                  <SpinnerLoader color="fill-" />
+                  <SpinnerLoader color="fill-white" />
                 ) : (
                   "Edit"
                 )
