@@ -5,11 +5,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { auth_schemas } from "@/schemas";
 import { type z } from "zod";
 import { useAuth } from "@/hooks";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   // page states
   const { login_schema } = auth_schemas;
+  const navigate = useNavigate();
   type LoginSchema = z.infer<typeof login_schema>;
   const { loginMutateAsync, isLogging, isAuthenticated } = useAuth();
   const {
@@ -24,7 +25,7 @@ const Login = () => {
   // page functions
   const onSubmit: SubmitHandler<LoginSchema> = async ({ email, password }) => {
     await loginMutateAsync({ email, password });
-    <Navigate to="/" replace />;
+    navigate("/");
   };
 
   // if there is a user then redirect to home
