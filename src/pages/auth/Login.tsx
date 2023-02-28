@@ -24,6 +24,7 @@ const Login = () => {
   // page functions
   const onSubmit: SubmitHandler<LoginSchema> = async ({ email, password }) => {
     await loginMutateAsync({ email, password });
+    <Navigate to="/" replace />;
   };
 
   // if there is a user then redirect to home
